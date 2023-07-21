@@ -13,7 +13,7 @@ public with sharing class FeatureManagement {
         READ, aUPDATE, CREATE, aDELETE
     }
     public enum FieldAccess {
-        READ, aUPDATE
+        READ, aUPDATE, CREATE
     }
 
     public static Map<String, Set<String>> checkObjectAccess(Map<String, List<ObjectAccess>> accessRequiredByObject, Boolean raiseError){
@@ -71,6 +71,12 @@ public with sharing class FeatureManagement {
             for(String fieldName : requiredFieldAccess.get(objectName).keySet()){
                 Set<FieldAccess> requiredAccess = requiredFieldAccess.get(objectName).get(fieldName);
 
+                if(requiredAccess.contains(FieldAccess.CREATE)){
+                    Boolean hasAccess = objectFields.get(fieldName).getDescribe().isCreateable();
+
+                    if(!hasAccess) 
+                        updateObjectFieldResult(objectName, fieldName, 'Criação', missingPermissions);
+                }
                 if(requiredAccess.contains(FieldAccess.READ)){
                     Boolean hasAccess = objectFields.get(fieldName).getDescribe().isAccessible();
 
@@ -116,7 +122,7 @@ public with sharing class FeatureManagement {
         if(!missingPermissions.containsKey(objectName))
             missingPermissions.put(objectName, new Map<String, Set<String>>());
 
-        if(!missingPermissions.containsKey(fieldName))
+        if(!missingPermissions.get(objectName).containsKey(fieldName))
             missingPermissions.get(objectName).put(fieldName, new Set<String>());
 
         missingPermissions.get(objectName).get(fieldName).add(missingAccess);
