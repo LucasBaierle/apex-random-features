@@ -1,0 +1,32 @@
+//utilizando:
+
+//parent html
+<c-star-rating
+    rating-value={response.caseRating}
+    handle-question-res={handleQuestionRes}
+    question-number="1"
+></c-star-rating>
+<c-star-rating
+    rating-value={response.serviceRating}
+    handle-question-res={handleQuestionRes}
+    question-number="2"
+></c-star-rating>
+
+//parent js
+@track response = {
+    caseRating: '',
+    serviceRating: '',
+}
+
+handleQuestionRes = (event, number, value) => { 
+    const qNumber = number || event.target.dataset.number; 
+    const qValue = value || event.detail.value;
+
+    if(qNumber == '1')
+        this.response.caseRating = qValue;
+
+    if(qNumber == '2')
+        this.response.timeRating = qValue;
+
+    console.table(JSON.parse(JSON.stringify(this.response)));
+}
