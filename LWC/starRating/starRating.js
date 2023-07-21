@@ -4,7 +4,7 @@ import starRatingStyles from './starRating.css';
 export default class StarRating extends LightningElement {
 
     @api ratingValue = '';
-    @api handleQuestionRes = (e, n, v)=>{}
+    @api handleQuestionRes = (e, n, v)=>{};
     @api questionNumber = 0;
 
     onClick(event){
