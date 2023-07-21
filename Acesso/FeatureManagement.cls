@@ -130,3 +130,5 @@ public with sharing class FeatureManagement {
 
     private class MissingAccessException extends Exception{}
 }
+//todo Deixar a descrição das permissões pendentes em variáveis estaticas:
+//      Ex: public static Map<String, String> ACCESS_DESCRIPTION = new Map<String, String>{'UPDATE' => 'Atualizar'}
