@@ -1,0 +1,25 @@
+//consultar um objeto:
+
+FeatureManagement.checkObjectAccess(
+    new Map<String, List<FeatureManagement.ObjectAccess>>{
+        'Order' => new List<FeatureManagement.ObjectAccess>{
+            FeatureManagement.ObjectAccess.READ,
+            FeatureManagement.ObjectAccess.CREATE
+        }
+    },
+    true
+);
+
+//consultar um campo:
+
+FeatureManagement.checkFieldAccess(
+    new Map<String, Map<String, Set<FeatureManagement.FieldAccess>>>{
+        'Order' => new Map<String, Set<FeatureManagement.FieldAccess>>{
+            'DMF__c' => new Set<FeatureManagement.FieldAccess>{
+                FeatureManagement.FieldAccess.READ,
+                FeatureManagement.FieldAccess.aUpdate
+            }
+        }
+    },
+    true
+);
