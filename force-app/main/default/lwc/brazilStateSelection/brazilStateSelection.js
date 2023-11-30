@@ -4,18 +4,25 @@ export default class BrazilStateSelection extends LightningElement {
 
     @api recordId;
 
-    @track selectedState = 'MG';
     @track selectionByState = true;
-
-
+    @track selectedState;
 
     handleRegionClick(event) {
+        event.preventDefault();
+
         const region = event.currentTarget.dataset.region;
 
-        if(region && region.length == 2)
-            this.selectedState = region;
+        if(region && region.length == 2){
+
+            if(this.selectedState == region)
+                this.selectedState = null;
+            else
+                this.selectedState = region;
+        }
 
         console.log(this.selectedState);
+
+        return false;
     }
 
     handleToggleSelection(event){
@@ -157,5 +164,7 @@ export default class BrazilStateSelection extends LightningElement {
 
         if(['AM', 'PA', 'AC', 'RO', 'TO', 'AP', 'RR'].includes(this.selectedState))
             return 'Norte';
+
+        return 'all';
     }
 }
