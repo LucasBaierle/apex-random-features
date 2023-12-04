@@ -23,6 +23,10 @@ export default class TrendingItem extends LightningElement {
     }
 
     handleUpVote(){
+        console.log('upVote');
+
+        return false;
+
         if(this.currentVote == 'UP'){
             this.currentVote = null;
             this.votes -= 1;
@@ -34,6 +38,9 @@ export default class TrendingItem extends LightningElement {
         this.sendVote();
     }
     handleDownVote(){
+        console.log('downVote');
+        return false;
+
         if(this.currentVote == 'DOWN'){
             this.currentVote = null;
             this.votes += 1;
@@ -46,6 +53,9 @@ export default class TrendingItem extends LightningElement {
     }
 
     handleFavorite(){
+        console.log('onFavorite');
+        return false;
+
         this.areFavorited = this.areFavorited ? false : true;
 
 
@@ -68,6 +78,10 @@ export default class TrendingItem extends LightningElement {
         .finally(()=>{
             this.isLoading = false;
         })
+    }
+
+    openModal(){
+        console.log('open modal');
     }
 
     get dissableUpVote(){
