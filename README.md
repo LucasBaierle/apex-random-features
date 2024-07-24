@@ -9,7 +9,7 @@
 
 #LWC
 
-[Brazil State Selection ](https://github.com/LucasBaierle/apex-random-features/tree/main/force-app/main/default/lwc/brazilStateSelection) -> ![Git Demo](https://github.com/user-attachments/assets/70192317-8db7-47cc-8908-3c39a02e811c)
+[Brazil State Selection ](https://github.com/LucasBaierle/apex-random-features/tree/main/force-app/main/default/lwc/brazilStateSelection) -> [Git Demo](https://github.com/LucasBaierle/apex-random-features/blob/main/force-app/main/default/lwc/brazilStateSelection/example.gif)
 
 [Confetti on container](https://github.com/LucasBaierle/apex-random-features/tree/main/force-app/main/default/lwc/confettiBox) -> [Gif Demo](https://github.com/LucasBaierle/apex-random-features/blob/main/force-app/main/default/lwc/confettiBox/example.gif)
 
