@@ -5,7 +5,7 @@ public with sharing class SecurityUtilsTest {
     static void encryptDecryptOnAES256Test(){
 
         Map<Object, Object> expectedData = new Map<Object, Object>{
-            'email' => 'lucasBayer24@gmail.com',
+            'email' => 'ciyido8191@tiervio.com',
             'date' => '2024-07-24 23:01:12'
         };
         String type = 'AES256';
