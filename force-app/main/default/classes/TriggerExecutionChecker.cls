@@ -1,4 +1,4 @@
-public with sharing class TriggerUtils {
+public with sharing class TriggerExecutionChecker {
     public static Boolean onlySkippableFieldsChanged(Map<Id, SObject> oldRecords, List<SObject> newRecords){
 
         if(oldRecords == null) return false;
